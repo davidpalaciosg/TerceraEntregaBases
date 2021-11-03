@@ -115,3 +115,5 @@ insert into PeriodoFecha(anio,mes) values(2016,04);
 insert into PeriodoFecha(anio,mes) values(2016,03);
 insert into PeriodoFecha(anio,mes) values(2016,02);
 insert into PeriodoFecha(anio,mes) values(2016,01);
+
+commit;
