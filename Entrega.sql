@@ -39,12 +39,16 @@ insert into Fuente(hemisferio,continente) values('Sur','SurAmerica');
 insert into Fuente(hemisferio,continente) values('Sur','Australia');
 insert into Fuente(hemisferio,continente) values('Sur','Antartida');
 --Fechas
+/
 begin 
-    for i in reverse 1945 .. 2021 loop
+    for i in reverse 1918 .. 2021 loop
         for j in  01 .. 12 loop
             insert into PeriodoFecha(anio,mes) values(i,j);
         end loop;
     end loop;
 end;
+/
+
+--select * from periodofecha,fuente order by periodofecha.id;
 
 
