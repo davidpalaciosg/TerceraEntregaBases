@@ -6,6 +6,7 @@ Cuentas: is562815, is562814,is562812,is562806,is562810
 */
 
 --CREACIÓN DE TABLAS
+drop table envio;
 drop table Fuente;
 drop table PeriodoFecha;
 
@@ -25,6 +26,16 @@ unique(anio,mes)
 );
 grant select on PeriodoFecha to jcarreno;
 
+create table Envio(
+idFuente int not null,
+idPeriodoFecha int not null,
+cantidad int default 0,
+foreign key(idFuente) references Fuente(id),
+foreign key(idPeriodoFecha) references PeriodoFecha(id),
+primary key (idFuente, idPeriodoFecha, cantidad)
+);
+grant select on Envio to jcarreno;
+
 
 
 
@@ -39,9 +50,9 @@ insert into Fuente(hemisferio,continente) values('Sur','SurAmerica');
 insert into Fuente(hemisferio,continente) values('Sur','Australia');
 insert into Fuente(hemisferio,continente) values('Sur','Antartida');
 --Fechas
-/
+
 begin 
-    for i in reverse 1918 .. 2021 loop
+    for i in reverse 1917 .. 2021 loop
         for j in  01 .. 12 loop
             insert into PeriodoFecha(anio,mes) values(i,j);
         end loop;
@@ -49,6 +60,29 @@ begin
 end;
 /
 
---select * from periodofecha,fuente order by periodofecha.id;
+--Creación de envíos
+declare
+    cursor fid
+        is 
+        select id
+        from fuente
+        order by id;
+    cursor pid
+        is
+        select id
+        from periodofecha
+        order by id;
+begin 
+    --Con los cursores se recorre cada tabla y se hace el producto cartesiano
+    for i in   fid  loop
+        for j in pid loop
+            insert into Envio(cantidad, idFuente, idPeriodoFecha) values (dbms_random.value(0,2500), i.id ,j.id);
+        end loop;
+    end loop;
+end;
+/
+
+
+
 
 
