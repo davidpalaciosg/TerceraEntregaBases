@@ -39,81 +39,12 @@ insert into Fuente(hemisferio,continente) values('Sur','SurAmerica');
 insert into Fuente(hemisferio,continente) values('Sur','Australia');
 insert into Fuente(hemisferio,continente) values('Sur','Antartida');
 --Fechas
-insert into PeriodoFecha(anio,mes) values(2021,11);
-insert into PeriodoFecha(anio,mes) values(2021,10);
-insert into PeriodoFecha(anio,mes) values(2021,09);
-insert into PeriodoFecha(anio,mes) values(2021,08);
-insert into PeriodoFecha(anio,mes) values(2021,07);
-insert into PeriodoFecha(anio,mes) values(2021,06);
-insert into PeriodoFecha(anio,mes) values(2021,05);
-insert into PeriodoFecha(anio,mes) values(2021,04);
-insert into PeriodoFecha(anio,mes) values(2021,03);
-insert into PeriodoFecha(anio,mes) values(2021,02);
-insert into PeriodoFecha(anio,mes) values(2021,01);
+begin 
+    for i in reverse 1945 .. 2021 loop
+        for j in  01 .. 12 loop
+            insert into PeriodoFecha(anio,mes) values(i,j);
+        end loop;
+    end loop;
+end;
 
-insert into PeriodoFecha(anio,mes) values(2020,12);
-insert into PeriodoFecha(anio,mes) values(2020,11);
-insert into PeriodoFecha(anio,mes) values(2020,10);
-insert into PeriodoFecha(anio,mes) values(2020,09);
-insert into PeriodoFecha(anio,mes) values(2020,08);
-insert into PeriodoFecha(anio,mes) values(2020,07);
-insert into PeriodoFecha(anio,mes) values(2020,06);
-insert into PeriodoFecha(anio,mes) values(2020,05);
-insert into PeriodoFecha(anio,mes) values(2020,04);
-insert into PeriodoFecha(anio,mes) values(2020,03);
-insert into PeriodoFecha(anio,mes) values(2020,02);
-insert into PeriodoFecha(anio,mes) values(2020,01);
 
-insert into PeriodoFecha(anio,mes) values(2019,12);
-insert into PeriodoFecha(anio,mes) values(2019,11);
-insert into PeriodoFecha(anio,mes) values(2019,10);
-insert into PeriodoFecha(anio,mes) values(2019,09);
-insert into PeriodoFecha(anio,mes) values(2019,08);
-insert into PeriodoFecha(anio,mes) values(2019,07);
-insert into PeriodoFecha(anio,mes) values(2019,06);
-insert into PeriodoFecha(anio,mes) values(2019,05);
-insert into PeriodoFecha(anio,mes) values(2019,04);
-insert into PeriodoFecha(anio,mes) values(2019,03);
-insert into PeriodoFecha(anio,mes) values(2019,02);
-insert into PeriodoFecha(anio,mes) values(2019,01);
-
-insert into PeriodoFecha(anio,mes) values(2018,12);
-insert into PeriodoFecha(anio,mes) values(2018,11);
-insert into PeriodoFecha(anio,mes) values(2018,10);
-insert into PeriodoFecha(anio,mes) values(2018,09);
-insert into PeriodoFecha(anio,mes) values(2018,08);
-insert into PeriodoFecha(anio,mes) values(2018,07);
-insert into PeriodoFecha(anio,mes) values(2018,06);
-insert into PeriodoFecha(anio,mes) values(2018,05);
-insert into PeriodoFecha(anio,mes) values(2018,04);
-insert into PeriodoFecha(anio,mes) values(2018,03);
-insert into PeriodoFecha(anio,mes) values(2018,02);
-insert into PeriodoFecha(anio,mes) values(2018,01);
-
-insert into PeriodoFecha(anio,mes) values(2017,12);
-insert into PeriodoFecha(anio,mes) values(2017,11);
-insert into PeriodoFecha(anio,mes) values(2017,10);
-insert into PeriodoFecha(anio,mes) values(2017,09);
-insert into PeriodoFecha(anio,mes) values(2017,08);
-insert into PeriodoFecha(anio,mes) values(2017,07);
-insert into PeriodoFecha(anio,mes) values(2017,06);
-insert into PeriodoFecha(anio,mes) values(2017,05);
-insert into PeriodoFecha(anio,mes) values(2017,04);
-insert into PeriodoFecha(anio,mes) values(2017,03);
-insert into PeriodoFecha(anio,mes) values(2017,02);
-insert into PeriodoFecha(anio,mes) values(2017,01);
-
-insert into PeriodoFecha(anio,mes) values(2016,12);
-insert into PeriodoFecha(anio,mes) values(2016,11);
-insert into PeriodoFecha(anio,mes) values(2016,10);
-insert into PeriodoFecha(anio,mes) values(2016,09);
-insert into PeriodoFecha(anio,mes) values(2016,08);
-insert into PeriodoFecha(anio,mes) values(2016,07);
-insert into PeriodoFecha(anio,mes) values(2016,06);
-insert into PeriodoFecha(anio,mes) values(2016,05);
-insert into PeriodoFecha(anio,mes) values(2016,04);
-insert into PeriodoFecha(anio,mes) values(2016,03);
-insert into PeriodoFecha(anio,mes) values(2016,02);
-insert into PeriodoFecha(anio,mes) values(2016,01);
-
-commit;
