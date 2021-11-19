@@ -84,6 +84,8 @@ begin
 end;
 /
 
+commit;
+
 select f.hemisferio, f.continente, p.anio, p.mes, e.cantidad  
 from envio e
 inner join fuente f on (e.idfuente = f.id)
