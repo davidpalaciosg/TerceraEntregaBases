@@ -50,7 +50,7 @@ insert into Fuente(hemisferio,continente) values('Sur','SurAmerica');
 insert into Fuente(hemisferio,continente) values('Sur','Australia');
 insert into Fuente(hemisferio,continente) values('Sur','Antartida');
 --Fechas
-
+--Se crean las fechas con ciclos anidados
 begin 
     for i in reverse 1917 .. 2021 loop
         for j in  01 .. 12 loop
@@ -76,12 +76,17 @@ begin
     --Con los cursores se recorre cada tabla y se hace el producto cartesiano
     for i in   fid  loop
         for j in pid loop
-            insert into Envio(cantidad, idFuente, idPeriodoFecha) values (dbms_random.value(0,2500), i.id ,j.id);
+            insert into Envio(cantidad, idFuente, idPeriodoFecha) values (dbms_random.value(0,5000), i.id ,j.id);
         end loop;
     end loop;
 end;
 /
 
+select f.hemisferio, f.continente, p.anio, p.mes, e.cantidad  
+from envio e
+inner join fuente f on (e.idfuente = f.id)
+inner join periodofecha p on (e.idPeriodoFecha = p.id)
+order by p.anio desc,p.mes asc;
 
 
 
