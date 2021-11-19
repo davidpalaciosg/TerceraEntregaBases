@@ -31,8 +31,7 @@ idFuente int not null,
 idPeriodoFecha int not null,
 cantidad int default 0,
 foreign key(idFuente) references Fuente(id),
-foreign key(idPeriodoFecha) references PeriodoFecha(id),
-primary key (idFuente, idPeriodoFecha, cantidad)
+foreign key(idPeriodoFecha) references PeriodoFecha(id)
 );
 grant select on Envio to jcarreno;
 
