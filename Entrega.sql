@@ -62,11 +62,13 @@ end;
 
 --Creación de envíos
 declare
+    --Cursor de fuentes
     cursor fid
         is 
         select id
         from fuente
         order by id;
+    --Cursor de periodos fecha
     cursor pid
         is
         select id
@@ -76,6 +78,7 @@ begin
     --Con los cursores se recorre cada tabla y se hace el producto cartesiano
     for i in   fid  loop
         for j in pid loop
+            --Inserta un valor aleatorio entre 0 y 5000
             insert into Envio(cantidad, idFuente, idPeriodoFecha) values (dbms_random.value(0,5000), i.id ,j.id);
         end loop;
     end loop;
@@ -86,7 +89,7 @@ select f.hemisferio, f.continente, p.anio, p.mes, e.cantidad
 from envio e
 inner join fuente f on (e.idfuente = f.id)
 inner join periodofecha p on (e.idPeriodoFecha = p.id)
-order by p.anio desc,p.mes asc;
+order by p.anio desc,p.mes asc, e.cantidad desc;
 
 
 
